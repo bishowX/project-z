@@ -31,10 +31,18 @@ module.exports = {
 			},
 			gray: {
 				50: "#F9FAFB",
+				200: "#E5E7EB",
 				600: "#4D5562",
 				700: "#394150",
 			},
+			brand: {
+				50: "#d7e3f3",
+				600: "#366bb4",
+				700: "#295189",
+			},
 			white: "#FFFFFF",
+			black: "#000000",
+			transparent: "tranparent",
 		},
 	},
 	plugins: [],
