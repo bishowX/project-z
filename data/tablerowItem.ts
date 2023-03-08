@@ -1,0 +1,52 @@
+import { TableRowItemValue } from "~~/types/tablerowItem";
+
+export const tableRowItemData: TableRowItemValue[] = [
+	{
+		id: 1,
+		image: "/image_1.png",
+		manufacturarLogo: "/manufacturer_logo.png",
+		title: "Poly CCX700",
+		subTitle: "zp-212243-21232",
+		shortDescription: [
+			"Attribute 1: Value Lorem Iposum",
+			"Attribute 2: Value Lorem Iposum",
+			"Attribute 3: Value Lorem Iposum",
+		],
+		price: 631.64,
+		all: 2345.67,
+		leasePrice: ["$3.99 / mo (24m), $2.99 / mo (36m), $2.39 / mo (60m)"],
+		daasPrice: "$4.699 / mo",
+		quantity: 5,
+	},
+	{
+		id: 2,
+		image: "/image_2.png",
+		manufacturarLogo: "/manufacturer_logo.png",
+		title: "Poly CCX 600 with Camera Kit",
+		subTitle: "zp-212243-21232",
+		shortDescription: [
+			"Attribute 1: Value Lorem Iposum",
+			"Attribute 2: Value Lorem Iposum",
+			"Attribute 3: Value Lorem Iposum",
+			"Attribute 4: Value Lorem Iposum",
+		],
+		price: 526.64,
+		all: 2345.67,
+		leasePrice: ["$3.99 / mo (24m), $2.99 / mo (36m), $2.39 / mo (60m)"],
+		daasPrice: "$4.699 / mo",
+		quantity: 5,
+	},
+	{
+		id: 3,
+		image: "/image_1.png",
+		manufacturarLogo: "/manufacturer_logo.png",
+		title: "Poly VVX 450",
+		subTitle: "zp-212243-21232",
+		shortDescription: ["Attribute 1: Value Lorem Iposum", "Attribute 2: Value Lorem Iposum"],
+		price: 205.64,
+		all: 2345.67,
+		leasePrice: ["$3.99 / mo (24m), $2.99 / mo (36m), $2.39 / mo (60m)"],
+		daasPrice: "$4.699 / mo",
+		quantity: 5,
+	},
+];
