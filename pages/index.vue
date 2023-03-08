@@ -147,12 +147,12 @@ const customersColumnHelper = createColumnHelper<Customer>();
 const quotesColumns = [
 	quotesColumnHelper.accessor(a => a.order, {
 		cell: params => <span class="underline">{params.getValue()}</span>,
-		header: "Order",
+		header: "Order #",
 		id: "order",
 	}),
 	quotesColumnHelper.accessor(a => a.customer, {
 		cell: params => <span class="underline">{params.getValue()}</span>,
-		header: "Customer",
+		header: "Customer #",
 		id: "customer",
 	}),
 	quotesColumnHelper.accessor(a => a.readiness, {
@@ -216,7 +216,11 @@ const customersColumns = [
 		id: "name",
 	}),
 	customersColumnHelper.accessor(a => a.email, {
-		cell: params => params.getValue(),
+		cell: params => (
+			<a class="underline" href={`mailto:${params.getValue()}`}>
+				{params.getValue()}
+			</a>
+		),
 		header: "Email",
 		id: "email",
 	}),
