@@ -7,10 +7,15 @@
 				>
 					<h1 class="text-[24px] leading-[32px] text-blue-600">Product Categories</h1>
 				</div>
-				<div class="flex w-full items-start justify-center gap-4 self-stretch">
-					<cardCategory />
-					<cardCategory />
-					<cardCategory />
+				<div class="flex w-full flex-wrap items-start justify-center gap-4 self-stretch">
+					<cardCategory name="Wireless Headsets" link="/products?category=wireless-headsets" />
+					<cardCategory name="Wireless Headsets" link="/products?category=wireless-headsets" />
+					<cardCategory name="Wireless Headsets" link="/products?category=wireless-headsets" />
+					<cardCategory name="Wireless Headsets" link="/products?category=wireless-headsets" />
+					<cardCategory name="Wireless Headsets" link="/products?category=wireless-headsets" />
+					<cardCategory name="Wireless Headsets" link="/products?category=wireless-headsets" />
+					<cardCategory name="Wireless Headsets" link="/products?category=wireless-headsets" />
+					<cardCategory name="Wireless Headsets" link="/products?category=wireless-headsets" />
 				</div>
 			</div>
 			<div class="flex flex-col items-start gap-4 self-stretch">
