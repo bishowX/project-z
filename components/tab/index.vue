@@ -1,7 +1,7 @@
 <template>
 	<div class="flex w-full items-center justify-between">
 		<ul
-			class="w-fit list-none gap-6 overflow-auto whitespace-nowrap bg-white text-center"
+			class="w-fit list-none gap-6 overflow-auto whitespace-nowrap text-center"
 			:class="{
 				'flex items-center': variant === 'vertical',
 			}"
