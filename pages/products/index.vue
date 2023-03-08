@@ -2,7 +2,6 @@
 	<div class="order-1 mt-[86px] flex items-start gap-8 self-stretch pb-[64px]">
 		<!-- filter sidebar -->
 		<div class="flex w-60 flex-col gap-8 pr-8">
-			<!-- <h1>Category: {{ category }}</h1> -->
 			<div v-for="categoryAttributes in mappedAttributesValues" :key="categoryAttributes.name">
 				<h4 class="text-lg text-brand-500">{{ categoryAttributes.name }}</h4>
 				<div class="mt-2 flex flex-col gap-3">
@@ -40,9 +39,6 @@
 <script setup lang="ts">
 import { categoryAttributesValues } from "@/data/category";
 import { tableRowItemData } from "@/data/tablerowItem";
-
-const route = useRoute();
-const category = ref(route.query.category);
 
 const mappedAttributesValues = computed(() =>
 	categoryAttributesValues.map(item => ({

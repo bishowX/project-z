@@ -1,5 +1,5 @@
 <template>
-	<div class="pt-5">
+	<div class="py-5">
 		<div class="flex w-full items-center justify-between">
 			<div class="w-4"></div>
 			<p class="flex cursor-pointer items-center gap-2 text-sm font-bold text-gray-700">
@@ -12,6 +12,10 @@
 		</div>
 		<div class="h-2"></div>
 		<Table :data="customersData" :columns="columns" />
+		<div class="flex w-full items-center justify-between">
+			<p class="text-sm font-medium text-gray-700">Showing 1 to 20 of 197 results</p>
+			<Pagination />
+		</div>
 	</div>
 </template>
 
