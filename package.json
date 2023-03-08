@@ -26,6 +26,8 @@
 		"prettier-plugin-tailwindcss": "^0.2.4"
 	},
 	"dependencies": {
+		"@heroicons/vue": "^2.0.16",
+		"@tanstack/vue-table": "^8.7.9",
 		"class-variance-authority": "^0.4.0",
 		"typescript": "^4.9.5"
 	}
