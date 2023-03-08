@@ -1,85 +1,95 @@
 <template>
-	<Table :data="data" :columns="columns" />
+	<div class="pt-5">
+		<div class="flex w-full items-center justify-between">
+			<div class="w-4"></div>
+			<p class="flex cursor-pointer items-center gap-2 text-sm font-bold text-gray-700">
+				Sort By:
+				<span class="flex items-center gap-1 font-normal"
+					>Date Created Desc <ChevronDownIcon class="text-current inline h-4 w-4 pt-1"
+				/></span>
+			</p>
+			<Button color="blue" variant="default">New Customer</Button>
+		</div>
+		<div class="h-2"></div>
+		<Table :data="customersData" :columns="columns" />
+	</div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="tsx">
+import { ChevronDownIcon } from "@heroicons/vue/24/outline";
+
 import { createColumnHelper } from "@tanstack/table-core";
 
-type Person = {
-	firstName: string;
-	lastName: string;
-	age: number;
-	visits: number;
-	status: string;
-	progress: number;
-};
+interface Customer {
+	partnerCust: string;
+	cust: string;
+	company: string;
+	name: string;
+	email: string;
+	dateCreated: string;
+	dateLastPurchased: string;
+	sales: string;
+}
+const createCustomersData = (count: number): Customer[] =>
+	new Array(count).fill({
+		partnerCust: "zc00234",
+		cust: "zc00234",
+		company: "Ajax Global",
+		name: "Bishow Pandey",
+		email: "jan@tanstack.com",
+		dateCreated: "2017/01/01",
+		dateLastPurchased: "2017/01/01",
+		sales: "$1,000,000",
+	});
 
-const columnHelper = createColumnHelper<Person>();
+const customersColumnHelper = createColumnHelper<Customer>();
 
-const defaultData: Person[] = [
-	{
-		firstName: "tanner",
-		lastName: "linsley",
-		age: 24,
-		visits: 100,
-		status: "In Relationship",
-		progress: 50,
-	},
-	{
-		firstName: "tandy",
-		lastName: "miller",
-		age: 40,
-		visits: 40,
-		status: "Single",
-		progress: 80,
-	},
-	{
-		firstName: "joe",
-		lastName: "dirte",
-		age: 45,
-		visits: 20,
-		status: "Complicated",
-		progress: 10,
-	},
-];
+const customersData = createCustomersData(50);
 
 const columns = [
-	columnHelper.accessor(a => a.firstName, {
+	customersColumnHelper.accessor(a => a.partnerCust, {
 		cell: params => params.getValue(),
-		header: "First Name",
-		id: "firstName",
+		header: "Partner Cust #",
+		id: "zc00234",
 	}),
-	columnHelper.accessor(a => a.firstName, {
+	customersColumnHelper.accessor(a => a.cust, {
 		cell: params => params.getValue(),
-		header: "First Name",
-		id: "firstName",
+		header: "Cust #",
+		id: "zc00234",
 	}),
-	columnHelper.accessor(a => a.firstName, {
+	customersColumnHelper.accessor(a => a.company, {
 		cell: params => params.getValue(),
-		header: "First Name",
-		id: "firstName",
+		header: "Company",
+		id: "company",
 	}),
-	columnHelper.accessor(a => a.firstName, {
+	customersColumnHelper.accessor(a => a.name, {
 		cell: params => params.getValue(),
-		header: "First Name",
-		id: "firstName",
+		header: "Name",
+		id: "name",
 	}),
-	columnHelper.accessor(a => a.firstName, {
-		cell: params => params.getValue(),
-		header: "First Name",
-		id: "firstName",
+	customersColumnHelper.accessor(a => a.email, {
+		cell: params => (
+			<a class="underline" href={`mailto:${params.getValue()}`}>
+				{params.getValue()}
+			</a>
+		),
+		header: "Email",
+		id: "email",
 	}),
-	columnHelper.accessor(a => a.firstName, {
+	customersColumnHelper.accessor(a => a.dateCreated, {
 		cell: params => params.getValue(),
-		header: "First Name",
-		id: "firstName",
+		header: "Date Created",
+		id: "dateCreated",
 	}),
-	columnHelper.accessor(a => a.firstName, {
+	customersColumnHelper.accessor(a => a.dateLastPurchased, {
 		cell: params => params.getValue(),
-		header: "First Name",
-		id: "firstName",
+		header: "Date Last Purchased",
+		id: "dateLastPurchased",
+	}),
+	customersColumnHelper.accessor(a => a.sales, {
+		cell: params => params.getValue(),
+		header: "Sales",
+		id: "sales",
 	}),
 ];
-
-const data = ref(defaultData);
 </script>

@@ -3,7 +3,7 @@
 		<div class="h-10"></div>
 		<div class="flex w-full items-center justify-between">
 			<div class="flex items-center gap-4">
-				<Button variant="inverse" color="blue">View Customers</Button>
+				<NuxtLink to="/customers"><Button variant="inverse" color="blue">View Customers</Button></NuxtLink>
 				<Button variant="inverse" color="blue">View Quotes & Orders</Button>
 			</div>
 			<div class="flex items-center gap-4">
@@ -12,7 +12,7 @@
 			</div>
 		</div>
 		<div class="h-6"></div>
-		<Tab :tab-list="tabList" variant="vertical">
+		<Tab :view-all-link="viewAllLink" :on-change="onActiveTabChange" :tab-list="tabList" variant="vertical">
 			<template #tabPanel-1> <Table :data="quotes" :columns="quotesColumns" /> </template>
 			<template #tabPanel-2> <Table :data="customers" :columns="customersColumns" /> </template>
 		</Tab>
@@ -239,7 +239,7 @@ const customersColumns = [
 
 const tabList = [
 	{
-		label: "Recent Customers",
+		label: "Recent Quotes",
 		icon: DocumentTextIcon,
 	},
 	{
@@ -247,4 +247,10 @@ const tabList = [
 		icon: UsersIcon,
 	},
 ];
+
+const viewAllLink = ref("/quotes");
+
+const onActiveTabChange = (value: number) => {
+	viewAllLink.value = value === 1 ? "/quotes" : "/customers";
+};
 </script>
