@@ -24,7 +24,7 @@
 				/>
 			</li>
 		</ul>
-		<Button variant="inverse" color="blue">View all</Button>
+		<NuxtLink :to="viewAllLink"><Button variant="inverse" color="blue">View all</Button></NuxtLink>
 	</div>
 	<template v-for="(_, index) in tabList">
 		<div v-if="index + 1 === activeTab" :key="index" class="flex-grow">
@@ -42,9 +42,15 @@ interface TabProps {
 		icon: Component;
 	}[];
 	variant: TabVariant;
+	viewAllLink: string;
+	onChange: (value: number) => void;
 }
 
-defineProps<TabProps>();
+const props = defineProps<TabProps>();
 
 const activeTab = ref(1);
+
+watch([activeTab], value => {
+	props.onChange(value[0]);
+});
 </script>
