@@ -11,7 +11,12 @@
 			<Button color="blue" variant="default">New Customer</Button>
 		</div>
 		<div class="h-2"></div>
-		<Table :data="customersData" :columns="columns" />
+		<Table
+			:get-row-class="() => 'cursor-pointer'"
+			:on-row-click="onRowClick"
+			:data="customersData"
+			:columns="columns as ColumnDef<unknown, any>[]"
+		/>
 		<div class="flex w-full items-center justify-between">
 			<p class="text-sm font-medium text-gray-700">Showing 1 to 20 of 197 results</p>
 			<Pagination />
@@ -22,7 +27,10 @@
 <script setup lang="tsx">
 import { ChevronDownIcon } from "@heroicons/vue/24/outline";
 
-import { createColumnHelper } from "@tanstack/table-core";
+import { ColumnDef, createColumnHelper } from "@tanstack/table-core";
+import { OnRowClickArgs } from "~~/components/table/index.vue";
+
+const router = useRouter();
 
 interface Customer {
 	partnerCust: string;
@@ -46,6 +54,10 @@ const createCustomersData = (count: number): Customer[] =>
 		sales: "$1,000,000",
 	});
 
+const onRowClick = (data: OnRowClickArgs) => {
+	router.push(`/customers/${data.row.getValue("cust")}`);
+};
+
 const customersColumnHelper = createColumnHelper<Customer>();
 
 const customersData = createCustomersData(50);
@@ -54,12 +66,12 @@ const columns = [
 	customersColumnHelper.accessor(a => a.partnerCust, {
 		cell: params => params.getValue(),
 		header: "Partner Cust #",
-		id: "zc00234",
+		id: "partnerCust",
 	}),
 	customersColumnHelper.accessor(a => a.cust, {
 		cell: params => params.getValue(),
 		header: "Cust #",
-		id: "zc00234",
+		id: "cust",
 	}),
 	customersColumnHelper.accessor(a => a.company, {
 		cell: params => params.getValue(),
@@ -73,7 +85,7 @@ const columns = [
 	}),
 	customersColumnHelper.accessor(a => a.email, {
 		cell: params => (
-			<a class="underline" href={`mailto:${params.getValue()}`}>
+			<a onClick={e => e.stopPropagation()} class="underline" href={`mailto:${params.getValue()}`}>
 				{params.getValue()}
 			</a>
 		),
