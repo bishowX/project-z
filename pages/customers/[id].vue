@@ -1,6 +1,6 @@
 <template>
 	<div class="py-12">
-		<div class="grid grid-cols-12 gap-2">
+		<div class="grid grid-cols-12 gap-4">
 			<div class="col-span-6">
 				<InputTextField label="Refernce Account ID" />
 			</div>
@@ -37,7 +37,7 @@
 						<InputTextField label="Address 2" />
 					</div>
 
-					<div class="col-span-12">
+					<div class="col-span-12 grid grid-cols-12 gap-4">
 						<div class="col-span-3">
 							<InputTextField label="Country" />
 						</div>
@@ -60,8 +60,8 @@
 							<div class="rounded-md bg-gray-200 py-1 px-2 text-xs text-gray-800">5</div>
 						</div>
 						<div class="flex items-center gap-2">
-							<button><EyeIcon class="h-5 w-5 text-gray-400 hover:text-gray-500" /></button>
-							<button><PlusCircleIcon class="h-5 w-5 text-gray-400 hover:text-gray-500" /></button>
+							<button><EyeIcon class="h-6 w-6 text-gray-400 hover:text-gray-500" /></button>
+							<button><PlusCircleIcon class="h-6 w-6 text-gray-400 hover:text-gray-500" /></button>
 						</div>
 					</div>
 					<div class="col-span-12">
@@ -71,7 +71,7 @@
 						<InputTextField label="Address 2" />
 					</div>
 
-					<div class="col-span-12">
+					<div class="col-span-12 grid grid-cols-12 gap-4">
 						<div class="col-span-3">
 							<InputTextField label="Country" />
 						</div>
@@ -89,36 +89,39 @@
 			</div>
 		</div>
 
-		<div class="mt-6 w-full border-b border-b-gray-200">
-			<div class="flex items-center gap-2">
-				<h2 class="text-2xl text-blue-600">Internal Notes</h2>
-				<div class="rounded-md bg-gray-200 py-1 px-2 text-xs text-gray-800">5</div>
-			</div>
-		</div>
-
-		<div class="mt-2 flex min-h-[168px] w-full flex-col gap-3 rounded-md bg-white px-6 py-4">
-			<div
-				v-for="item in [1, 2]"
-				:key="item"
-				class="flex w-full items-start gap-2 border-b border-b-gray-200 pb-2"
-			>
-				<h3 class="text-sm font-bold text-gray-500">UC AE:</h3>
-				<div>
-					<h6 class="text-sm font-normal text-gray-500">
-						Jan is interested in piloting this equipment, if it works out it could be a 800 device
-						deployment.
-					</h6>
-					<button class="flex items-center gap-1 text-xs font-normal text-gray-400">
-						12/01/2022 6:30AM <TrashIcon />
-					</button>
+		<div class="mt-6 w-full">
+			<div class="w-full border-b border-b-gray-200">
+				<div class="flex items-center gap-2">
+					<h2 class="text-2xl text-blue-600">Internal Notes</h2>
+					<div class="rounded-md bg-gray-200 py-1 px-2 text-xs text-gray-800">5</div>
 				</div>
 			</div>
 
-			<div class="flex w-full items-center justify-center">
-				<button><PlusIcon class="text-gray-400 hover:text-gray-500" /></button>
+			<div class="mt-2 flex min-h-[168px] w-full flex-col gap-3 rounded-md bg-white px-6 py-4">
+				<div
+					v-for="item in [1, 2]"
+					:key="item"
+					class="flex w-full items-start gap-2 border-b border-b-gray-200 pb-2"
+				>
+					<h3 class="text-sm font-bold leading-6 text-gray-500">UC AE:</h3>
+					<div>
+						<h6 class="text-sm font-normal leading-6 text-gray-500">
+							Jan is interested in piloting this equipment, if it works out it could be a 800 device
+							deployment.
+						</h6>
+						<button class="flex items-center gap-1 text-xs font-normal text-gray-400">
+							12/01/2022 6:30AM <TrashIcon class="h-4 w-[14px]" />
+						</button>
+					</div>
+				</div>
+
+				<div class="flex w-full items-center justify-center">
+					<button><PlusCircleIcon class="h-6 w-6 text-gray-400 hover:text-gray-500" /></button>
+				</div>
 			</div>
 		</div>
 
+		<!-- Documents -->
 		<div class="mt-6 w-full">
 			<div class="mb-2 w-full border-b border-b-gray-200">
 				<h2 class="text-2xl text-brand-500">Documents</h2>
