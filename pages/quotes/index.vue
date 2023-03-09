@@ -54,6 +54,7 @@ interface Quote {
 	reference: string;
 	status: string;
 	closeDate: string;
+	total: string;
 }
 
 const createData = (count: number): Quote[] =>
