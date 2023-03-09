@@ -15,7 +15,7 @@
 			:get-row-class="() => 'cursor-pointer'"
 			:on-row-click="onRowClick"
 			:data="customersData"
-			:columns="columns as ColumnDef<unknown, any>[]"
+			:columns="columns"
 		/>
 		<div class="flex w-full items-center justify-between">
 			<p class="text-sm font-medium text-gray-700">Showing 1 to 20 of 197 results</p>
@@ -27,7 +27,7 @@
 <script setup lang="tsx">
 import { ChevronDownIcon } from "@heroicons/vue/24/outline";
 
-import { ColumnDef, createColumnHelper } from "@tanstack/table-core";
+import { createColumnHelper } from "@tanstack/table-core";
 import { OnRowClickArgs } from "~~/components/table/index.vue";
 
 const router = useRouter();

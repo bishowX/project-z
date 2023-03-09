@@ -5,7 +5,7 @@ export type OnRowClickArgs = { row: Row<unknown>; event: MouseEvent };
 interface TableProps {
 	data: unknown[];
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	columns: ColumnDef<unknown, any>[];
+	columns: ColumnDef<any, any>[];
 	onRowClick?: (data: OnRowClickArgs) => void;
 	getRowClass?: (row: Row<unknown>) => string;
 	getCellClass?: (row: Cell<unknown, unknown>) => string;
@@ -17,7 +17,7 @@ const table = useVueTable({
 	get data() {
 		return props.data;
 	},
-	columns: props.columns,
+	columns: props.columns as ColumnDef<unknown, unknown>[],
 	getCoreRowModel: getCoreRowModel(),
 });
 </script>
@@ -45,7 +45,7 @@ const table = useVueTable({
 			<tr
 				v-for="row in table.getRowModel().rows"
 				:key="row.id"
-				class="dark:bg-gray-800 space-y-1 bg-white"
+				class="space-y-1 bg-white dark:bg-gray-800"
 				:class="getRowClass?.(row)"
 				@click="event => onRowClick?.({ row, event })"
 			>
